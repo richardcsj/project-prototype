@@ -74,6 +74,7 @@ adminId:string;
   }
   deactivate(user:any){
   	user.valid = false;
+    user.validatedBy = {};
   	this.userService.updateUser(user._id,user)
         .subscribe(
           (res:any) => {           

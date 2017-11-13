@@ -4,6 +4,7 @@ import {Routing} from './app.routing';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {UserService} from './services/user.service';
+import {PropertyService} from './services/property.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -17,7 +18,8 @@ import { AdminMenuComponent } from './components/menu/admin-menu/admin-menu.comp
 import { UserComponent } from './components/admin/user/user.component';
 import { PropertyComponent } from './components/admin/property/property.component';
 import { ReviewComponent } from './components/admin/review/review.component';
-import { DetailsComponent } from './components/admin/user/details/details.component';
+import { UserDetailsComponent } from './components/admin/user/details/details.component';
+import { PropertyDetailsComponent } from './components/admin/property/details/details.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { DetailsComponent } from './components/admin/user/details/details.compon
     UserComponent,
     PropertyComponent,
     ReviewComponent,
-    DetailsComponent
+    UserDetailsComponent,
+    PropertyDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import { DetailsComponent } from './components/admin/user/details/details.compon
     FormsModule,
     Routing
   ],
-  providers: [UserService],
+  providers: [UserService,PropertyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

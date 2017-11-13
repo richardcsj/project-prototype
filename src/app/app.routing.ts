@@ -8,7 +8,8 @@ import {MenuComponent} from "./components/menu/menu.component";
 import { UserComponent } from './components/admin/user/user.component';
 import { PropertyComponent } from './components/admin/property/property.component';
 import { ReviewComponent } from './components/admin/review/review.component';
-import { DetailsComponent } from './components/admin/user/details/details.component';
+import { UserDetailsComponent } from './components/admin/user/details/details.component';
+import { PropertyDetailsComponent } from './components/admin/property/details/details.component';
 
 // Import all other components here
 const APP_ROUTES : Routes = [
@@ -20,7 +21,8 @@ const APP_ROUTES : Routes = [
   { path: 'admin/:adminId/user', component: UserComponent},
   { path: 'admin/:adminId/property', component: PropertyComponent},
   { path: 'admin/:adminId/review', component: ReviewComponent},
-  { path: 'admin/:adminId/user/:userId', component: DetailsComponent}
+  { path: 'admin/:adminId/user/:userId', component: UserDetailsComponent},
+  { path: 'admin/:adminId/property/:propertyId', component:PropertyDetailsComponent}
 ];
 // Export the routes as module providers
 export const Routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
