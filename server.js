@@ -33,7 +33,7 @@ const port = process.env.PORT || '3100';
 
 // Create HTTP server
 const server = http.createServer(app);
-
+require("./server/app.js")(app);
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
