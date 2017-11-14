@@ -2,15 +2,15 @@ module.exports=function(app){
 
 properties = [
     {_id:"12",type:"appartment",description:"Apartment For Rent Unfurnished Rental Studio, 1 bath",size:950,latitude:40.702029,longitude:-73.989844,
-    available:true,price:2500,valid:true,owner:"234",customer:"",validatedBy:"123"},
+    available:true,price:2500,valid:true,owner:{_id:"234"},customer:{_id:""},validatedBy:"123"},
     {_id:"23",type:"garage",description:"Garage for rent in San Francisco",size:500,latitude:37.734204,longitude:-122.437434,
-    available:true,price:1100,valid:false,owner:"234",customer:"",validatedBy:""},
+    available:true,price:1100,valid:false,owner:{_id:"234"},customer:{_id:""},validatedBy:""},
     {_id:"34",type:"house",description:"House For Rent in San Francisco",size:1500,latitude: 37.736003,longitude:-122.434795,
-    available:false,price:5000,valid:true,owner:"234",customer:"456",validatedBy:"123"},
+    available:false,price:5000,valid:true,owner:{_id:"234"},customer:{_id:"456"},validatedBy:"123"},
     {_id:"45",type:"appartment",description:"Apartment For Rent in Washington",size:1000,latitude:47.407644,longitude:-118.864689,
-    available:true,price:3000,valid:false,owner:"234",customer:"",validatedBy:"123"},
+    available:true,price:3000,valid:false,owner:{_id:"234"},customer:{_id:""},validatedBy:"123"},
     {_id:"56",type:"offices",description:"Offices for rent in Washington",size:1200,latitude:47.415544,longitude:-119.169559,
-    available:true,price:4000,valid:true,owner:"234",customer:"",validatedBy:"123"}
+    available:true,price:4000,valid:true,owner:{_id:"234"},customer:{_id:""},validatedBy:"123"}
   ]
 
   api = {
@@ -35,7 +35,7 @@ properties = [
 		if(property!=undefined){
 			property._id = Math.floor(Math.random()*900) + 100;
       property._id = ""+property._id;
-			property.owner = ownerId;
+			property.owner = {_id:ownerId};
 			properties.push(property);
 			res.send(property);
 		}else{

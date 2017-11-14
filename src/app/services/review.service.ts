@@ -5,14 +5,16 @@ import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
 
 @Injectable()
-export class PropertyService {
+export class ReviewService {
 
   constructor(private _http: Http) { }
 
   baseUrl = environment.baseUrl;
 
-  createProperty(ownerId:string, property:any){
-  	return this._http.post(this.baseUrl + '/api/property/owner/'+ownerId,{property:property})
+  createReview(propertyId:string, customerId:string, review:any){
+  	review.customer = customerId;
+  	review.property = propertyId;
+  	return this._http.post(this.baseUrl + '/api/review',{review:review})
   	 .map(
   	 	(res:Response) => {
   	 		const data = res.json();
@@ -21,8 +23,8 @@ export class PropertyService {
   	 	);
   }
 
-  findPropertiesByOwner(ownerId:string){
-  	return this._http.get(this.baseUrl + '/api/property/owner/'+ownerId)
+  findReviewsForProperty(propertyId:string){
+  	return this._http.get(this.baseUrl + '/api/review/property/'+propertyId)
      .map(
        (res: Response) => {
          const data = res.json();
@@ -31,8 +33,8 @@ export class PropertyService {
      );
   }
 
-  findAllProperties(){
-  	return this._http.get(this.baseUrl + '/api/property')
+  findAllReviews(){
+  	return this._http.get(this.baseUrl + '/api/review')
      .map(
        (res: Response) => {
          const data = res.json();
@@ -40,18 +42,8 @@ export class PropertyService {
        }
      );
   }
-  findPropertyById(propertyId:string){
-  	return this._http.get(this.baseUrl + '/api/property/'+propertyId)
-     .map(
-       (res: Response) => {
-         const data = res.json();
-         return data;
-       }
-     );
-  }
-
-  updateProperty(propertyId:string,property:any){
-  	return this._http.put(this.baseUrl + '/api/property/'+propertyId,{property:property})
+  findReviewById(reviewId:string){
+  	return this._http.get(this.baseUrl + '/api/review/'+reviewId)
      .map(
        (res: Response) => {
          const data = res.json();
@@ -60,8 +52,18 @@ export class PropertyService {
      );
   }
 
-  deleteProperty(propertyId:string){
-  	return this._http.delete(this.baseUrl + '/api/property/'+propertyId)
+  updateReview(reviewId:string,review:any){
+  	return this._http.put(this.baseUrl + '/api/review/'+reviewId,{review:review})
+     .map(
+       (res: Response) => {
+         const data = res.json();
+         return data;
+       }
+     );
+  }
+
+  deleteReview(reviewId:string){
+  	return this._http.delete(this.baseUrl + '/api/review/'+reviewId)
      .map(
        (res: Response) => {
          const data = res.json();

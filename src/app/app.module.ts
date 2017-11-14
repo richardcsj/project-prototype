@@ -5,6 +5,7 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {UserService} from './services/user.service';
 import {PropertyService} from './services/property.service';
+import {ReviewService} from './services/review.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -44,7 +45,7 @@ import { PropertyDetailsComponent } from './components/admin/property/details/de
     FormsModule,
     Routing
   ],
-  providers: [UserService,PropertyService],
+  providers: [UserService,PropertyService,ReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

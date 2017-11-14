@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router,ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../services/user.service";
 import {PropertyService} from "../../../services/property.service";
+import {Location} from '@angular/common';
 
 
 @Component({
@@ -19,7 +20,7 @@ adminId:string;
   messageFlag:boolean;
   message : string;
   constructor(private userService: UserService,private propertyService: PropertyService, private activatedRoute: ActivatedRoute,
-  	private router: Router) { }
+  	private router: Router,private _location: Location) { }
 
   ngOnInit() {
   	this.activatedRoute.params
@@ -49,13 +50,22 @@ adminId:string;
 									this.users = users;
 									for(let i = 0;i<this.properties.length;i++){
 										for(let j =0;j<this.users.length;j++){
-											if(this.properties[i].owner === this.users[j]._id){
+											if(this.properties[i].owner._id === this.users[j]._id){
 												this.properties[i].owner = this.users[j];
 											}
-											if(this.properties[i].customer === this.users[j]._id){
+											if(this.properties[i].customer._id === this.users[j]._id){
 												this.properties[i].customer = this.users[j];
 											}
 										}
+                    this.propertyService.updateProperty(this.properties[i]._id,this.properties[i])
+                      .subscribe(
+                        (res:any) => {           
+
+                        },
+                        (error:any) => {
+                          
+                        }
+                      );
 									}
 								},
 								(error:any)=>{
@@ -104,10 +114,13 @@ adminId:string;
           },
           (error:any) => {
             this.errorFlag = true;
-            this.errorMsg = 'cannot validate property';
+            this.errorMsg = 'cannot deactivate property';
 
           }
         );    
+  }
+  back(){
+    this._location.back();
   }
 
 }

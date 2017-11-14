@@ -2,7 +2,7 @@
 
 	  <div 
 	    class="alert alert-info">
-	    <a [routerLink]="['..']" class="pull-left" > <i class="glyphicon glyphicon-chevron-left"></i> </a>
+	    <a (click)="back()" class="pull-left" > <i class="glyphicon glyphicon-chevron-left"></i> </a>
 	    Connected as  <b>{{admin.username}}</b> | role :<b> Admin </b>.<br>
 	  </div>
       <div class="panel panel-primary">

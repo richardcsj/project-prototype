@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router,ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../../services/user.service";
+import {Location} from '@angular/common';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class UserDetailsComponent implements OnInit {
   user:any;
   admin:any;
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute,
-  	private router: Router) { }
+  	private router: Router, private _location: Location) { }
 
 
   ngOnInit() {
@@ -63,6 +64,9 @@ export class UserDetailsComponent implements OnInit {
 	    }
 	    );
 
+  }
+  back(){
+    this._location.back();
   }
 
 }
