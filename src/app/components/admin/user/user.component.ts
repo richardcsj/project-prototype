@@ -23,33 +23,33 @@ adminId:string;
 
   ngOnInit() {
   	this.activatedRoute.params
-	.subscribe(
-		(params: any) => {
-		this.adminId = params['adminId'];
-		this.userService.findUserById(this.adminId)
-	  .subscribe(
-	    (user:any)=>{
-	      this.admin = user;
-	      if(this.admin.role!='admin'){
-	      	this.router.navigate(['profile',this.adminId,'menu']);
-	      }
-	    },
-	    (error:any)=>{
-	      console.log(error);
+  	.subscribe(
+  		(params: any) => {
+  		this.adminId = params['adminId'];
+  		this.userService.findUserById(this.adminId)
+  	  .subscribe(
+  	    (user:any)=>{
+  	      this.admin = user;
+  	      if(this.admin.role!='admin'){
+  	      	this.router.navigate(['profile',this.adminId,'menu']);
+  	      }
+  	    },
+  	    (error:any)=>{
+  	      console.log(error);
 
-	    }
-	    );
-	this.userService.findAllUsers()
-		.subscribe(
-			(users:any)=>{
-				this.users = users;
-			},
-			(error:any)=>{
-				console.log(error);
-			}
-			)
-		}
-	);
+  	    }
+  	    );
+  	this.userService.findAllUsers()
+  		.subscribe(
+  			(users:any)=>{
+  				this.users = users;
+  			},
+  			(error:any)=>{
+  				console.log(error);
+  			}
+  			)
+  		}
+  	);
 	
   }
   details(userId:string){

@@ -10,6 +10,10 @@ import { PropertyComponent } from './components/admin/property/property.componen
 import { ReviewComponent } from './components/admin/review/review.component';
 import { UserDetailsComponent } from './components/admin/user/details/details.component';
 import { PropertyDetailsComponent } from './components/admin/property/details/details.component';
+import { ClientComponent } from './components/owner/client/client.component';
+import { OwnerPropertyComponent } from './components/owner/property/property.component';
+import { OwnerReviewComponent } from './components/owner/review/review.component';
+
 
 // Import all other components here
 const APP_ROUTES : Routes = [
@@ -22,7 +26,10 @@ const APP_ROUTES : Routes = [
   { path: 'admin/:adminId/property', component: PropertyComponent},
   { path: 'admin/:adminId/review', component: ReviewComponent},
   { path: 'admin/:adminId/user/:userId', component: UserDetailsComponent},
-  { path: 'admin/:adminId/property/:propertyId', component:PropertyDetailsComponent}
+  { path: 'admin/:adminId/property/:propertyId', component:PropertyDetailsComponent},
+  { path: 'owner/:ownerId/client',component:ClientComponent},
+  { path: 'owner/:ownerId/property',component:OwnerPropertyComponent},
+  { path: 'owner/:ownerId/review',component:OwnerReviewComponent}
 ];
 // Export the routes as module providers
 export const Routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

@@ -21,6 +21,9 @@ import { PropertyComponent } from './components/admin/property/property.componen
 import { ReviewComponent } from './components/admin/review/review.component';
 import { UserDetailsComponent } from './components/admin/user/details/details.component';
 import { PropertyDetailsComponent } from './components/admin/property/details/details.component';
+import { ClientComponent } from './components/owner/client/client.component';
+import { OwnerPropertyComponent } from './components/owner/property/property.component';
+import { OwnerReviewComponent } from './components/owner/review/review.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { PropertyDetailsComponent } from './components/admin/property/details/de
     PropertyComponent,
     ReviewComponent,
     UserDetailsComponent,
-    PropertyDetailsComponent
+    PropertyDetailsComponent,
+    ClientComponent,
+    OwnerPropertyComponent,
+    OwnerReviewComponent
   ],
   imports: [
     BrowserModule,

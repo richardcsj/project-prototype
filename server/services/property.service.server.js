@@ -51,7 +51,7 @@ properties = [
   	var ownerId = req.params.ownerId;
   	var resultProperties = [];
     for (var x = 0; x < properties.length; x++) {
-      if (properties[x].owner === ownerId) {
+      if (properties[x].owner._id === ownerId) {
         resultProperties.push(properties[x]);
       }
     }
