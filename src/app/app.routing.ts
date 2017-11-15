@@ -13,6 +13,8 @@ import { PropertyDetailsComponent } from './components/admin/property/details/de
 import { ClientComponent } from './components/owner/client/client.component';
 import { OwnerPropertyComponent } from './components/owner/property/property.component';
 import { OwnerReviewComponent } from './components/owner/review/review.component';
+import { SearchComponent } from './components/customer/search/search.component';
+import { ListComponent } from './components/customer/list/list.component';
 
 
 // Import all other components here
@@ -29,7 +31,10 @@ const APP_ROUTES : Routes = [
   { path: 'admin/:adminId/property/:propertyId', component:PropertyDetailsComponent},
   { path: 'owner/:ownerId/client',component:ClientComponent},
   { path: 'owner/:ownerId/property',component:OwnerPropertyComponent},
-  { path: 'owner/:ownerId/review',component:OwnerReviewComponent}
+  { path: 'owner/:ownerId/review',component:OwnerReviewComponent},
+  { path : 'customer/:customerId/search',component:SearchComponent},
+  { path : 'customer/:customerId/list',component:ListComponent},
+  { path : 'customer/:customerId/type/:type',component:ListComponent}
 ];
 // Export the routes as module providers
 export const Routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

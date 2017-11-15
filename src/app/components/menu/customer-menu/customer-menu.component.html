@@ -1,3 +1,35 @@
-<p>
-  customer-menu works!
-</p>
+<div class="container">
+	  <div  class="alert alert-info">
+	    Connected as  <b>{{user.username}}</b> | role :<b> Customer </b>.
+	  </div>
+      <div class="row">
+          <div class="col-xs-4">
+            <a [routerLink]="['/customer',userId,'search']" class="thumbnail">
+              <span class="btn btn-lg btn-primary glyphicon glyphicon-search" ></span>
+              <div class="caption">
+                <h3>Search for property</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-xs-4">
+            <a [routerLink]="['/customer',userId,'list']" class="thumbnail">
+              <span class="btn btn-lg btn-primary glyphicon glyphicon-list" ></span>
+              <div class="caption">
+                <h3>List properties</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-xs-4">
+            <a [routerLink]="['/customer',userId,'rentals']" class="thumbnail">
+              <span class="btn btn-lg btn-primary glyphicon glyphicon-home" ></span>
+              <div class="caption">
+                <h3>My rentals</h3>
+              </div>
+            </a>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12"><a class="btn btn-danger" [routerLink]="['/login']" >logout</a></div>
+      </div>
+
+</div> <!-- /container -->

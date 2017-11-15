@@ -1,0 +1,60 @@
+<div class="container">
+	  <div 
+	    class="alert alert-info">
+      <a (click)="back()" class="pull-left" > <i class="glyphicon glyphicon-chevron-left"></i> </a>
+	    Connected as  <b>{{customer.username}}</b> | role :<b> Customer </b>.<br>
+	  </div>
+      <div *ngIf="errorFlag"
+        class="alert alert-danger">
+        {{errorMsg}}
+      </div>
+      <div *ngIf="messageFlag"
+        class="alert alert-success">
+        {{message}}
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <div *ngIf="property" class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Property's Info</h3>
+            </div>
+            <div class="panel-body" style="color:black">
+              ID : <b>{{property._id}}</b> <br>
+              Type : <b>{{property.type}}</b> <br>
+              Description : <b>{{property.description}}</b><br>
+              Size : <b>{{property.size}} m²</b><br>
+              Price : <b>{{property.price}}$/month</b><br>
+              Latitude : <b>{{property.latitude}}</b><br>
+              Longitude : <b>{{property.longitude}}</b><br>
+              Available : <b>{{property.available}}</b><br>
+              Owner : <b>{{property.owner.username}}</b><br>
+              Reviews : <br>
+              <ul>
+                <li *ngFor="let review of property.reviews">
+                  {{review.text}} - ({{review.rate}} stars)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <table class="table table-bordered">
+          <tr>
+            <th>#</th>
+            <th>type</th>
+            <th>Owner</th>
+            <th>Available</th>
+            <th>actions</th>
+          </tr>
+          <tr *ngFor="let property of properties">
+            <td>{{property._id}}</td>
+            <td>{{property.type}}</td>
+            <td><a [routerLink]="['../user',property.owner._id]" >{{property.owner.username}}</a></td>
+            <td>{{property.available}}</td>
+            <td><button (click)="details(property)" [disabled]="!property.valid" class="btn btn-primary" ><i class="glyphicon glyphicon-info-sign" ></i></button> | <button *ngIf="property.valid" (click)="rent(property)" class="btn btn-success" [disabled]="!property.available" >Rent</button></td>
+          </tr>
+      </table>
+        </div>
+      </div>
+
+</div> <!-- /container -->

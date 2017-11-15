@@ -24,6 +24,8 @@ import { PropertyDetailsComponent } from './components/admin/property/details/de
 import { ClientComponent } from './components/owner/client/client.component';
 import { OwnerPropertyComponent } from './components/owner/property/property.component';
 import { OwnerReviewComponent } from './components/owner/review/review.component';
+import { SearchComponent } from './components/customer/search/search.component';
+import { ListComponent } from './components/customer/list/list.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { OwnerReviewComponent } from './components/owner/review/review.component
     PropertyDetailsComponent,
     ClientComponent,
     OwnerPropertyComponent,
-    OwnerReviewComponent
+    OwnerReviewComponent,
+    SearchComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
